@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -42,8 +43,10 @@ class LoginPage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 100, vertical: 10),
                         primary: Colors.orange),
-                    onPressed: () async {},
-                    child: Text('Login'))
+                    onPressed: () async {
+                      Get.offNamed('/home');
+                    },
+                    child: const Text('Login'))
               ],
             ),
           ),
