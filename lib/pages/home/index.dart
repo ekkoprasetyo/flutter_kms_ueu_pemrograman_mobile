@@ -23,7 +23,8 @@ class IndexHomePage extends StatelessWidget {
         ),
         GFAccordion(
             title: 'KMS Fasilkom UEU',
-            content: 'Developed By : \n Devin \n Eko \n Gianina'),
+            content:
+                'Developed By : \n Devin - 20180801244 \n Eko - 20180801185 \n Gianina - 20180801195'),
         GFCard(
           boxFit: BoxFit.cover,
           image: Image.asset('your asset image'),

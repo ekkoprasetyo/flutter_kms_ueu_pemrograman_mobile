@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ueu_pemrograman_mobile/controllers/knowledge_controller.dart';
+import 'package:flutter_ueu_pemrograman_mobile/routes/route_name.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:html/parser.dart' show parse;
@@ -64,7 +65,10 @@ class KnowledgeListCard extends StatelessWidget {
                       buttonBar: GFButtonBar(
                         children: <Widget>[
                           GFButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.toNamed(RouteName.knowledgeDetail,
+                                  arguments: [index]);
+                            },
                             text: 'Detail',
                           ),
                         ],

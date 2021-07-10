@@ -13,8 +13,8 @@ class IndexKnowledgePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Expanded(
-          child: KnowledgeListCard(),
+        Column(
+          children: [KnowledgeListCard()],
         ),
         Obx(() => (knowledgeController.isLoading.value)
             ? Center(child: CircularProgressIndicator())

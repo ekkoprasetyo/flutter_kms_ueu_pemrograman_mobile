@@ -1,7 +1,7 @@
 import 'package:flutter_ueu_pemrograman_mobile/bindings/knowledge_binding.dart';
 import 'package:flutter_ueu_pemrograman_mobile/bindings/auth_binding.dart';
 import 'package:flutter_ueu_pemrograman_mobile/pages/home_page.dart';
-import 'package:flutter_ueu_pemrograman_mobile/pages/knowledge/add.dart';
+import 'package:flutter_ueu_pemrograman_mobile/pages/knowledge/detail.dart';
 import 'package:flutter_ueu_pemrograman_mobile/pages/login_page.dart';
 import 'package:flutter_ueu_pemrograman_mobile/pages/splash_screen_page.dart';
 import 'package:flutter_ueu_pemrograman_mobile/routes/route_name.dart';
@@ -18,5 +18,11 @@ class AppPages {
         name: RouteName.home,
         page: () => HomePage(),
         binding: KnowledgeBinding()),
+    GetPage(
+      name: RouteName.knowledgeDetail,
+      page: () => KnowledgeDetail(
+        index: Get.arguments[0],
+      ),
+    )
   ];
 }
