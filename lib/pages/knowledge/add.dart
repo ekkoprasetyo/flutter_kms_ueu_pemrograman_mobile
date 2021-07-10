@@ -51,13 +51,7 @@ class KnowledgeAddPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              ElevatedButton(
-                  onPressed: () => knowledgeC.add(
-                        title: addKnowledgeC.titleController.text,
-                        headline: addKnowledgeC.headlineController.text,
-                        content: addKnowledgeC.contentController.text,
-                      ),
-                  child: const Text('Save')),
+              ElevatedButton(onPressed: () {}, child: const Text('Save')),
             ],
           ),
         ),

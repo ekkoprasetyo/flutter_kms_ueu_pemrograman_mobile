@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ueu_pemrograman_mobile/controllers/auth_controller.dart';
+
+import 'package:get/get.dart';
+
+final AuthController authController = Get.find<AuthController>();
 
 class SplashScreen extends StatelessWidget {
   @override

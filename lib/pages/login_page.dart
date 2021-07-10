@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ueu_pemrograman_mobile/controllers/login_controller.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
+
+  final LoginController loginController = Get.find<LoginController>();
+
+  final ButtonStyle style = ElevatedButton.styleFrom(
+      textStyle: const TextStyle(fontSize: 20),
+      elevation: 5,
+      padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+      primary: Colors.orange);
 
   @override
   Widget build(BuildContext context) {
@@ -36,17 +45,27 @@ class LoginPage extends StatelessWidget {
                 ),
                 _DividerLogin(),
                 _loginForm(),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        textStyle: const TextStyle(fontSize: 20),
-                        elevation: 5,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 100, vertical: 10),
-                        primary: Colors.orange),
-                    onPressed: () async {
-                      Get.offNamed('/home');
-                    },
-                    child: const Text('Login'))
+                Obx(() => ElevatedButton(
+                      style: style,
+                      onPressed: (loginController.isLoading.value)
+                          ? null
+                          : () async {
+                              loginController.login(
+                                  nim: loginController.nimController.text,
+                                  password:
+                                      loginController.passwordController.text);
+                            },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const <Widget>[
+                          Icon(Icons.login_outlined),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text('Login'),
+                        ],
+                      ),
+                    ))
               ],
             ),
           ),
@@ -94,19 +113,21 @@ class LoginPage extends StatelessWidget {
   Widget _loginForm() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: const <Widget>[
+      children: <Widget>[
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
           child: TextField(
-            decoration: InputDecoration(
+            controller: loginController.nimController,
+            decoration: const InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Username',
+              hintText: 'NIM',
             ),
           ),
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
           child: TextField(
+            controller: loginController.passwordController,
             obscureText: true,
             decoration: InputDecoration(
               border: OutlineInputBorder(),

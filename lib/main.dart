@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_ueu_pemrograman_mobile/pages/splash_screen_page.dart';
 import 'package:flutter_ueu_pemrograman_mobile/routes/app_page.dart';
+import 'package:flutter_ueu_pemrograman_mobile/routes/route_name.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'controllers/knowledge_controller.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,9 +12,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
-
-  final KnowledgeController knowledgeController =
-      Get.put(KnowledgeController());
 
   @override
   Widget build(BuildContext context) {
@@ -38,14 +34,14 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             defaultTransition: Transition.native,
             theme: ThemeData(
-              primarySwatch: Colors.blue,
+              primarySwatch: Colors.orange,
               textTheme: GoogleFonts.latoTextTheme(textTheme).copyWith(
                 bodyText1:
                     GoogleFonts.montserrat(textStyle: textTheme.bodyText1),
               ),
             ),
             debugShowCheckedModeBanner: false,
-            initialRoute: '/login',
+            initialRoute: RouteName.splash,
             getPages: AppPages.pages,
           );
         }
