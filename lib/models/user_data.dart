@@ -8,7 +8,7 @@ class UserData {
   UserData({this.id, this.nim, this.name, this.email, this.tokenbearer});
 
   UserData.fromJson(Map<String, dynamic> json) {
-    id = json['areaid'] != null ? int.parse(json['id']) : 0;
+    id = json['id'] != null ? int.parse(json['id']) : 0;
     nim = json['nim'];
     name = json['name'];
     email = json['email'];

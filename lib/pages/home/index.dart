@@ -8,7 +8,7 @@ class IndexHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         CarouselSlider(
           options: CarouselOptions(
